@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursiveElements", "RecursiveElements\RecursiveElements.csproj", "{8A66D4C9-CBE4-4F1B-90EA-3BD325FB6CC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecursiveElements.Tests", "RecursiveElements.Tests\RecursiveElements.Tests.csproj", "{0988AEFF-0390-448E-B540-FC46A6A5796E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{8A66D4C9-CBE4-4F1B-90EA-3BD325FB6CC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A66D4C9-CBE4-4F1B-90EA-3BD325FB6CC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A66D4C9-CBE4-4F1B-90EA-3BD325FB6CC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0988AEFF-0390-448E-B540-FC46A6A5796E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0988AEFF-0390-448E-B540-FC46A6A5796E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0988AEFF-0390-448E-B540-FC46A6A5796E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0988AEFF-0390-448E-B540-FC46A6A5796E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

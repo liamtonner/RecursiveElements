@@ -12,3 +12,4 @@ C:\Users\LiamTonner\RiderProjects\RecursiveElements\RecursiveElements\obj\Debug\
 C:\Users\LiamTonner\RiderProjects\RecursiveElements\RecursiveElements\obj\Debug\net9.0\RecursiveElements.pdb
 C:\Users\LiamTonner\RiderProjects\RecursiveElements\RecursiveElements\obj\Debug\net9.0\RecursiveElements.genruntimeconfig.cache
 C:\Users\LiamTonner\RiderProjects\RecursiveElements\RecursiveElements\obj\Debug\net9.0\ref\RecursiveElements.dll
+C:\Users\LiamTonner\RiderProjects\RecursiveElements\RecursiveElements\obj\Debug\net9.0\RecursiveElements.sourcelink.json
