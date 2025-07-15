@@ -6,7 +6,7 @@ public static class Program
 {
     public static void Main()
     {
-        string word = "Snack";
+        const string word = "Snack";
         var results = ElementalWords.ElementalForms(word);
         
         if(results.Length <= 0)

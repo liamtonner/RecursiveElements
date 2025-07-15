@@ -39,7 +39,11 @@ public abstract class ElementalWords
     public static string[][] ElementalForms(string word)
     {
         var results = new List<List<string>>();
-        string lowercaseWord = word.ToLower();
+        var lowercaseWord = word.ToLower();
+
+        RecursiveSearch(0, []);
+
+        return results.Select(r => r.ToArray()).ToArray();
 
         void RecursiveSearch(int index, List<string> currentCombination)
         {
@@ -51,34 +55,30 @@ public abstract class ElementalWords
             }
 
             // check for matching combinations for lengths 1-3 eg, (HELLO) H, HE, HEL
-            for (int len = 1; len <= 3 && index + len <= lowercaseWord.Length; len++)
+            for (var len = 1; len <= 3 && index + len <= lowercaseWord.Length; len++)
             {
                 // take the substring for the current length e.g.:
                 // word = hello
                 // len = 1 substring = h
                 // len = 2 substring = he
                 // len = 3 substring = hel
-                string sub = lowercaseWord.Substring(index, len);
+                var sub = lowercaseWord.Substring(index, len);
 
                 // Try to match substring to an element in the table (case-insensitive)
-                string? symbol = Elements.Keys.FirstOrDefault(k => k.Equals(sub, StringComparison.OrdinalIgnoreCase));
-                if (symbol != null)
-                {
-                    // If found, add to the current list of elements found
-                    string fullName = Elements[symbol];
-                    // convert to requested format
-                    currentCombination.Add($"{fullName} ({symbol})");
-                    // call recursive function from next letter e.g., Hello -> He found -> len = 2 -> index = 0 + 2 -> start at 'l'
-                    RecursiveSearch(index + len, currentCombination);
-                    //Once the recursive call finishes, we undo that last step
-                    // e.g., we found He, now we can try H
-                    currentCombination.RemoveAt(currentCombination.Count - 1);
-                }
+                var symbol = Elements.Keys.FirstOrDefault(k => k.Equals(sub, StringComparison.OrdinalIgnoreCase));
+                
+                if (symbol == null) continue;
+                
+                // If found, add to the current list of elements found
+                var fullName = Elements[symbol];
+                // convert to requested format
+                currentCombination.Add($"{fullName} ({symbol})");
+                // call recursive function from next letter e.g., Hello -> He found -> len = 2 -> index = 0 + 2 -> start at 'l'
+                RecursiveSearch(index + len, currentCombination);
+                //Once the recursive call finishes, we undo that last step
+                // e.g., we found He, now we can try H
+                currentCombination.RemoveAt(currentCombination.Count - 1);
             }
         }
-
-        RecursiveSearch(0, new List<string>());
-
-        return results.Select(r => r.ToArray()).ToArray();
     }
 }
