@@ -19,11 +19,16 @@ Hydrogen (H), Helium (He), Lithium (Li)
 ## 💡 Example
 
 Input:
-Hello
+Snack
 
 Output:
-Hydrogen (H), Erbium (Er), Lawrencium (Lr), Oxygen (O)
-Helium (He), Lithium (Li), Oxygen (O)
+Sulfur (S), Nitrogen (N), Actinium (Ac), Potassium (K)
+Sulfur (S), Sodium (Na), Carbon (C), Potassium (K)
+Tin (Sn), Actinium (Ac), Potassium (K)
+Sulfur (S), Nitrogen (N), Actinium (Ac), Potassium (K)
+Sulfur (S), Sodium (Na), Carbon (C), Potassium (K)
+Tin (Sn), Actinium (Ac), Potassium (K)
+
 
 
 ---
