@@ -1,0 +1,9 @@
+version: "1.0"
+profile:
+  name: qodana.starter
+include:
+  - name: ConvertToConstant.Local
+  - name: InvertIf
+  - name: MoveLocalFunctionAfterJumpStatement
+  - name: UseCollectionExpression
+  - name: SuggestVarOrType_BuiltInTypes
