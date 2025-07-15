@@ -1,8 +1,11 @@
 ﻿namespace RecursiveElements;
 
-public abstract class ElementalWords
+using System;
+using System.Collections.Generic;
+
+public static class ElementDictionary
 {
-    private static readonly Dictionary<string, string> Elements = new()
+    private static readonly Dictionary<string, string> Elements = new(StringComparer.OrdinalIgnoreCase)
     {
         {"H", "Hydrogen"}, {"He", "Helium"}, {"Li", "Lithium"}, {"Be", "Beryllium"},
         {"B", "Boron"}, {"C", "Carbon"}, {"N", "Nitrogen"}, {"O", "Oxygen"},
@@ -36,49 +39,17 @@ public abstract class ElementalWords
         {"Ts", "Tennessine"}, {"Og", "Oganesson"}
     };
 
-    public static string[][] ElementalForms(string word)
+    public static bool TryGetElement(string input, out string formatted)
     {
-        var results = new List<List<string>>();
-        var lowercaseWord = word.ToLower();
-
-        RecursiveSearch(0, []);
-
-        return results.Select(r => r.ToArray()).ToArray();
-
-        void RecursiveSearch(int index, List<string> currentCombination)
+        foreach (var keyValuePair in Elements)
         {
-            // if index is at end of word then save current element combination to results array
-            if (index == lowercaseWord.Length)
-            {
-                results.Add([..currentCombination]); 
-                return;
-            }
-
-            // check for matching combinations for lengths 1-3 eg, (HELLO) H, HE, HEL
-            for (var len = 1; len <= 3 && index + len <= lowercaseWord.Length; len++)
-            {
-                // take the substring for the current length e.g.:
-                // word = hello
-                // len = 1 substring = h
-                // len = 2 substring = he
-                // len = 3 substring = hel
-                var sub = lowercaseWord.Substring(index, len);
-
-                // Try to match substring to an element in the table (case-insensitive)
-                var symbol = Elements.Keys.FirstOrDefault(k => k.Equals(sub, StringComparison.OrdinalIgnoreCase));
-                
-                if (symbol == null) continue;
-                
-                // If found, add to the current list of elements found
-                var fullName = Elements[symbol];
-                // convert to requested format
-                currentCombination.Add($"{fullName} ({symbol})");
-                // call recursive function from next letter e.g., Hello -> He found -> len = 2 -> index = 0 + 2 -> start at 'l'
-                RecursiveSearch(index + len, currentCombination);
-                //Once the recursive call finishes, we undo that last step
-                // e.g., we found He, now we can try H
-                currentCombination.RemoveAt(currentCombination.Count - 1);
-            }
+            if (!keyValuePair.Key.Equals(input, StringComparison.OrdinalIgnoreCase)) continue;
+            
+            formatted = $"{keyValuePair.Value} ({keyValuePair.Key})"; // use original-cased key
+            return true;
         }
+
+        formatted = null!;
+        return false;
     }
 }
